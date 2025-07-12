@@ -1,0 +1,29 @@
+<!-- create-profile.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Create Your Skill Swap Profile</h2>
+  <form id="profileForm">
+    <div id="message" style="color: green; font-weight: bold;"></div>
+    <input type="text" placeholder="Your Name" required><br><br>
+    <input type="text" placeholder="Skills You Offer (e.g., Python, Cooking)" required><br><br>
+    <input type="text" placeholder="Skills You Want (e.g., Excel, Singing)" required><br><br>
+    
+    <label>Availability:</label><br>
+    <input type="checkbox"> Weekends
+    <input type="checkbox"> Evenings <br><br>
+
+    <label>Profile:</label><br>
+    <input type="radio" name="public" checked> Public
+    <input type="radio" name="public"> Private <br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

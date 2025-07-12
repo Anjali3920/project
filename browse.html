@@ -1,0 +1,49 @@
+<!-- browse.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Browse Profiles</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button onclick="toggleDark()">Toggle Dark Mode</button>
+  <h2>Available Users for Skill Swap</h2>
+  <p id="userCount"></p>
+
+  <input type="text" id="searchBox" placeholder="Search skill like 'Excel'" onkeyup="searchProfiles()"><br><br>
+
+  <div id="profiles"></div>
+
+  <script>
+    const users = [
+      { name: 'Anjali', offer: 'Cooking', want: 'Python', availability: 'Weekends' },
+      { name: 'Riya', offer: 'Excel', want: 'Photoshop', availability: 'Evenings' },
+      { name: 'Aman', offer: 'Guitar', want: 'Coding', availability: 'Weekends' },
+    ];
+
+    function showProfiles(list) {
+      const container = document.getElementById('profiles');
+      container.innerHTML = "";
+      list.forEach(user => {
+        container.innerHTML += `
+          <div style="background:#fff; padding:15px; margin:10px; border-radius:10px;">
+            <h3>${user.name}</h3>
+            <p><b>Offers:</b> ${user.offer}</p>
+            <p><b>Wants:</b> ${user.want}</p>
+            <p><b>Availability:</b> ${user.availability}</p>
+            <button onclick="alert('Swap Request Sent!')">Send Swap Request</button>
+          </div>
+        `;
+      });
+    }
+
+    function searchProfiles() {
+      const query = document.getElementById('searchBox').value.toLowerCase();
+      const filtered = users.filter(user => user.offer.toLowerCase().includes(query) || user.want.toLowerCase().includes(query));
+      showProfiles(filtered);
+    }
+
+    showProfiles(users);
+  </script>
+</body>
+</html>
